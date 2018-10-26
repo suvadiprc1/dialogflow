@@ -5,7 +5,7 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Message implements Serializable {
 
-	private Texts text;
+	private TextsRS text;
 	private Image image;
 	private QuickReplies quickReplies;
 	private Card card;
@@ -13,11 +13,11 @@ public class Message implements Serializable {
 	private BasicCard basicCard;
 	private OpenUriAction openUriAction;
 
-	public Texts getText() {
+	public TextsRS getText() {
 		return text;
 	}
 
-	public void setText(Texts text) {
+	public void setText(TextsRS text) {
 		this.text = text;
 	}
 
