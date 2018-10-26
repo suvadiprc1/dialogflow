@@ -7,7 +7,7 @@ import java.util.List;
 public class DialogFlowRS implements Serializable {
 
 	private String fulfillmentText;
-	private List<Card> fulfillmentMessages;
+	private List<Message> fulfillmentMessages;
 	private String source;
 	private Payload payload;
 	private List<OutputContexts> outputContexts;
@@ -22,11 +22,11 @@ public class DialogFlowRS implements Serializable {
 		this.fulfillmentText = fulfillmentText;
 	}
 
-	public List<Card> getFulfillmentMessages() {
+	public List<Message> getFulfillmentMessages() {
 		return fulfillmentMessages;
 	}
 
-	public void setFulfillmentMessages(List<Card> fulfillmentMessages) {
+	public void setFulfillmentMessages(List<Message> fulfillmentMessages) {
 		this.fulfillmentMessages = fulfillmentMessages;
 	}
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demoaws.dtos.DialogFlowRQ;
 import com.example.demoaws.dtos.DialogFlowRS;
+import com.example.demoaws.dtos.Message;
 import com.example.demoaws.dtos.OutputContexts;
 
 @RestController
@@ -31,6 +32,13 @@ public class DialogFlowController {
 		outputContexts.add(contexts);
 		dialogFlowRS.setOutputContexts(outputContexts);
 		dialogFlowRS.setIntent(dialogFlowRQ.getQueryResult().getIntent());
+		final Message message = new Message();
+		final List<String> texts = new ArrayList<>();
+		texts.add("Hey Suvadip RC! Nice to see you!! Please tell me your age.");
+		message.setText(texts);
+		final List<Message> messages = new ArrayList<>();
+		messages.add(message);
+		dialogFlowRS.setFulfillmentMessages(messages);
 		return dialogFlowRS;
 	}
 

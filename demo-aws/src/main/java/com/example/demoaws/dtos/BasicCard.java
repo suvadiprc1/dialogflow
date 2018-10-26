@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class Card implements Serializable {
+public class BasicCard implements Serializable {
 
 	private String title;
 	private String subtitle;
-	private String imageUri;
+	private String formattedText;
+	private Image image;
 	private List<Buttons> buttons;
 
 	public String getTitle() {
@@ -27,12 +28,20 @@ public class Card implements Serializable {
 		this.subtitle = subtitle;
 	}
 
-	public String getImageUri() {
-		return imageUri;
+	public String getFormattedText() {
+		return formattedText;
 	}
 
-	public void setImageUri(String imageUri) {
-		this.imageUri = imageUri;
+	public void setFormattedText(String formattedText) {
+		this.formattedText = formattedText;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
 	}
 
 	public List<Buttons> getButtons() {
