@@ -1,6 +1,8 @@
 package com.example.demoaws.controllers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +27,9 @@ public class DialogFlowController {
 		params.put("name", "Suvadip Roy Chowdhury");
 		contexts.setLifespanCount(5);
 		contexts.setName("contains-name");
-		dialogFlowRS.setOutputContexts(contexts);
+		final List<OutputContexts> outputContexts = new ArrayList<>();
+		outputContexts.add(contexts);
+		dialogFlowRS.setOutputContexts(outputContexts);
 		return dialogFlowRS;
 	}
 

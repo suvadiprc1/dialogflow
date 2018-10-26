@@ -10,7 +10,7 @@ public class DialogFlowRS implements Serializable {
 	private List<Card> fulfillmentMessages;
 	private String source;
 	private Payload payload;
-	private OutputContexts outputContexts;
+	private List<OutputContexts> outputContexts;
 	private Intent intent;
 	private FollowupEventInput followupEventInput;
 
@@ -46,11 +46,11 @@ public class DialogFlowRS implements Serializable {
 		this.payload = payload;
 	}
 
-	public OutputContexts getOutputContexts() {
+	public List<OutputContexts> getOutputContexts() {
 		return outputContexts;
 	}
 
-	public void setOutputContexts(OutputContexts outputContexts) {
+	public void setOutputContexts(List<OutputContexts> outputContexts) {
 		this.outputContexts = outputContexts;
 	}
 
