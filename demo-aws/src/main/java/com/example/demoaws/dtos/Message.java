@@ -6,12 +6,12 @@ import java.io.Serializable;
 public class Message implements Serializable {
 
 	private TextsRS text;
-	private Image image;
+	/*private Image image;
 	private QuickReplies quickReplies;
 	private Card card;
 	private SimpleResponse simpleResponses;
 	private BasicCard basicCard;
-	private OpenUriAction openUriAction;
+	private OpenUriAction openUriAction;*/
 
 	public TextsRS getText() {
 		return text;
@@ -21,7 +21,7 @@ public class Message implements Serializable {
 		this.text = text;
 	}
 
-	public Image getImage() {
+	/*public Image getImage() {
 		return image;
 	}
 
@@ -67,6 +67,6 @@ public class Message implements Serializable {
 
 	public void setOpenUriAction(OpenUriAction openUriAction) {
 		this.openUriAction = openUriAction;
-	}
+	}*/
 
 }
