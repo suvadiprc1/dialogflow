@@ -11,7 +11,6 @@ public class DialogFlowRS implements Serializable {
 	private String source;
 	private Payload payload;
 	private List<OutputContexts> outputContexts;
-	private Intent intent;
 	private FollowupEventInput followupEventInput;
 
 	public String getFulfillmentText() {
@@ -52,14 +51,6 @@ public class DialogFlowRS implements Serializable {
 
 	public void setOutputContexts(List<OutputContexts> outputContexts) {
 		this.outputContexts = outputContexts;
-	}
-
-	public Intent getIntent() {
-		return intent;
-	}
-
-	public void setIntent(Intent intent) {
-		this.intent = intent;
 	}
 
 	public FollowupEventInput getFollowupEventInput() {

@@ -24,4 +24,9 @@ public class Intent implements Serializable {
 		this.displayName = displayName;
 	}
 
+	@Override
+	public String toString() {
+		return "Intent [name=" + name + ", displayName=" + displayName + "]";
+	}
+
 }
