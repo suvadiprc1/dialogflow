@@ -1,12 +1,11 @@
 package com.example.demoaws.dtos;
 
 import java.io.Serializable;
-import java.util.List;
 
 @SuppressWarnings("serial")
 public class Message implements Serializable {
 
-	private List<String> text;
+	private Texts text;
 	private Image image;
 	private QuickReplies quickReplies;
 	private Card card;
@@ -14,11 +13,11 @@ public class Message implements Serializable {
 	private BasicCard basicCard;
 	private OpenUriAction openUriAction;
 
-	public List<String> getText() {
+	public Texts getText() {
 		return text;
 	}
 
-	public void setText(List<String> text) {
+	public void setText(Texts text) {
 		this.text = text;
 	}
 

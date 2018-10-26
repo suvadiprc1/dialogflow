@@ -13,6 +13,8 @@ import com.example.demoaws.dtos.DialogFlowRQ;
 import com.example.demoaws.dtos.DialogFlowRS;
 import com.example.demoaws.dtos.Message;
 import com.example.demoaws.dtos.OutputContexts;
+import com.example.demoaws.dtos.Text;
+import com.example.demoaws.dtos.Texts;
 
 @RestController
 public class DialogFlowController {
@@ -35,7 +37,11 @@ public class DialogFlowController {
 		final Message message = new Message();
 		final List<String> texts = new ArrayList<>();
 		texts.add("Hey Suvadip RC! Nice to see you!! Please tell me your age.");
-		message.setText(texts);
+		final Text text = new Text();
+		text.setText(texts);
+		final Texts texts2 = new Texts();
+		texts2.setText(text);
+		message.setText(texts2);
 		final List<Message> messages = new ArrayList<>();
 		messages.add(message);
 		dialogFlowRS.setFulfillmentMessages(messages);
