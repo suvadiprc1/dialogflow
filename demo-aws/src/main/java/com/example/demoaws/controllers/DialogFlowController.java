@@ -30,6 +30,7 @@ public class DialogFlowController {
 		final List<OutputContexts> outputContexts = new ArrayList<>();
 		outputContexts.add(contexts);
 		dialogFlowRS.setOutputContexts(outputContexts);
+		dialogFlowRS.setIntent(dialogFlowRQ.getQueryResult().getIntent());
 		return dialogFlowRS;
 	}
 
