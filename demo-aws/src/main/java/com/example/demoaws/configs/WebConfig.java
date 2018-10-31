@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.cloud.dialogflow.v2.WebhookRequest;
 
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
@@ -21,7 +20,6 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		mapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		mapper.addMixIn(WebhookRequest.class, IgnoreWebhookReqSetQueryResultMixIn.class);
 		final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(mapper);
 		converters.add(converter);
 	}

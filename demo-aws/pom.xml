@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -35,13 +35,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- Dialogflow V2 Client Libraries -->
+
+		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-dialogflow -->
 		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-dialogflow</artifactId>
-			<version>0.68.0-alpha</version>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-dialogflow</artifactId>
+			<version>v2-rev2-1.23.0</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
