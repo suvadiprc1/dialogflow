@@ -8,7 +8,7 @@ import java.util.Map;
 public class QueryResult implements Serializable {
 
 	private String queryText;
-	private Map<String, String> parameters;
+	private Map<String, Object> parameters;
 	private Boolean allRequiredParamsPresent;
 	private String fulfillmentText;
 	private List<Texts> fulfillmentMessages;
@@ -26,11 +26,11 @@ public class QueryResult implements Serializable {
 		this.queryText = queryText;
 	}
 
-	public Map<String, String> getParameters() {
+	public Map<String, Object> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(Map<String, String> parameters) {
+	public void setParameters(Map<String, Object> parameters) {
 		this.parameters = parameters;
 	}
 
@@ -106,7 +106,5 @@ public class QueryResult implements Serializable {
 				+ ", intentDetectionConfidence=" + intentDetectionConfidence + ", diagnosticInfo=" + diagnosticInfo
 				+ ", languageCode=" + languageCode + "]";
 	}
-	
-	
 
 }

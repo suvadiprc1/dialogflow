@@ -7,7 +7,7 @@ import java.util.Map;
 public class OutputContexts implements Serializable {
 	private String name;
 	private Integer lifespanCount;
-	private Map<String, String> parameters;
+	private Map<String, Object> parameters;
 
 	public String getName() {
 		return name;
@@ -25,11 +25,11 @@ public class OutputContexts implements Serializable {
 		this.lifespanCount = lifespanCount;
 	}
 
-	public Map<String, String> getParameters() {
+	public Map<String, Object> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(Map<String, String> parameters) {
+	public void setParameters(Map<String, Object> parameters) {
 		this.parameters = parameters;
 	}
 
@@ -37,7 +37,5 @@ public class OutputContexts implements Serializable {
 	public String toString() {
 		return "OutputContexts [name=" + name + ", lifespanCount=" + lifespanCount + ", parameters=" + parameters + "]";
 	}
-	
-	
 
 }

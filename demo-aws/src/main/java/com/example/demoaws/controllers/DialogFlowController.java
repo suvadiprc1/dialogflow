@@ -1,16 +1,26 @@
 package com.example.demoaws.controllers;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demoaws.dtos.DialogFlowRQ;
+import com.google.api.services.dialogflow.v2.model.GoogleCloudDialogflowV2EventInput;
 import com.google.api.services.dialogflow.v2.model.GoogleCloudDialogflowV2WebhookResponse;
 
 @RestController
 public class DialogFlowController {
 
-	@PostMapping("hi")
+	@Resource
+	private Map<String, List<String>> models;
+
+	@PostMapping("/hi")
 	public GoogleCloudDialogflowV2WebhookResponse hello(@RequestBody final DialogFlowRQ dialogFlowRQ) {
 		System.out.println("Inside DialogflowController.hi()");
 		System.out.println(dialogFlowRQ);
@@ -40,6 +50,38 @@ public class DialogFlowController {
 		final List<Message> messages = new ArrayList<>();
 		messages.add(message);
 		dialogFlowRS.setFulfillmentMessages(messages);*/
+		return response;
+	}
+
+	@PostMapping("service")
+	public GoogleCloudDialogflowV2WebhookResponse serviceCar(@RequestBody DialogFlowRQ dialogFlowRQ) {
+		System.out.println("inside car service controller");
+		final Map<String, Object> parameters = dialogFlowRQ.getQueryResult().getParameters();
+		parameters.keySet().stream().forEach(k -> System.out.println("key = " + k + " value = " + parameters.get(k)));
+		final GoogleCloudDialogflowV2WebhookResponse response = new GoogleCloudDialogflowV2WebhookResponse();
+		final GoogleCloudDialogflowV2EventInput eventInput = new GoogleCloudDialogflowV2EventInput();
+		if (models.containsKey(parameters.get("make"))) {
+			eventInput.setName("confirmation");
+			final Map<String, Object> params = new HashMap<>();
+			params.put("name", parameters.get("name"));
+			params.put("city", parameters.get("city"));
+			params.put("make", parameters.get("make"));
+			params.put("model", parameters.get("model"));
+			params.put("datetime", parameters.get("date_time"));
+			eventInput.setParameters(params);
+			response.setFollowupEventInput(eventInput);
+		} else {
+			eventInput.setName("error");
+			final Map<String, Object> params = new HashMap<>();
+			params.put("name", parameters.get("name"));
+			params.put("city", parameters.get("city"));
+			params.put("make", parameters.get("make"));
+			params.put("model", parameters.get("model"));
+			params.put("datetime", parameters.get("date_time"));
+			eventInput.setParameters(params);
+			response.setFollowupEventInput(eventInput);
+		}
+
 		return response;
 	}
 
